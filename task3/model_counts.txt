@@ -1,13 +1,15 @@
-33327094 "\"123456789\""
-33328584 "\"broken\""
-33338513 "\"DRV1\""
-33333959 "\"DSD07461\""
-33332531 "\"HGST2048T\""
-33337292 "\"HGST3T\""
-33337967 "\"HGST8T\""
-      1 "\"MODEL\""
-33332954 "\"RDV2\""
-33329611 "\"SCSI3HD\""
-33327742 "\"SSDDC1\""
-33328579 "\"SSDF1\""
-33345174 "\"SSDLP2\""
+33327094 counts of 123456789 
+33328584 counts of broken 
+33338513 counts of DRV1 
+33333959 counts of DSD07461 
+33332531 counts of HGST2048T 
+33337292 counts of HGST3T 
+33337967 counts of HGST8T 
+      1 counts of MODEL 
+33332954 counts of RDV2 
+33329611 counts of SCSI3HD 
+33327742 counts of SSDDC1 
+33328579 counts of SSDF1 
+33345174 counts of SSDLP2 
+
+A total of 10 valid models, the rest are broken or some kind of placeholder.
