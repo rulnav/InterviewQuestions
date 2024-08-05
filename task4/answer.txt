@@ -1,3 +1,3 @@
 Binary a is failing because of an attempt to dereference a null pointer. It seems there are some operations relying on a file descriptor to the file "pesho", if such a file is added, the problem disappears. 
 
-Binary b is also failing because of an attempt to dereference a null pointer. It's going through the filesystem, probably searching, and the handling in case of failure to find is incomplete.
+Binary b is also failing because of an attempt to dereference a null pointer. 
