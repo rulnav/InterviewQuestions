@@ -40,7 +40,7 @@ void radixSort(uint32_t *arr, uint32_t arr_size)
     //Count sort for every digit, exp is 10^i, where i is the current digit number
     //0xFFFFFFFF is the maximum value for uint32_t
     for (int64_t exp = 1; 0xFFFFFFFF / exp > 0; exp *= COUNT_SORT_BASE){
-        printf("CountSort\n");
+        // printf("CountSort\n");
         countSort(arr, temp_arr, arr_size, exp);
     }
     free(temp_arr);
@@ -94,32 +94,3 @@ int main() {
     return 0;
 }
 
-// void bruteSolution(uint32_t *arr, uint32_t arr_size){
-//     uint32_t *unique_num_arr = (uint32_t *)malloc(arr_size * sizeof(uint32_t));
-//     uint32_t *occurance_count_arr = (uint32_t *)calloc(arr_size, sizeof(uint32_t));
-//     uint32_t unique_num_arr_size = 0;
-//     int32_t count_only_once = 0;
-//     for(int i = 0; i < arr_size; ++i){
-//         // if (!(i % 100000)) printf("%d\n",i);
-//         BOOL is_unique = TRUE;
-//         for(int j = 0; j < unique_num_arr_size; ++j){
-//             if (unique_num_arr[j] == arr[i]) {
-//                 is_unique = FALSE;
-//                 count_only_once-=( (++occurance_count_arr[j]) == 2 );
-//                 break;
-//             }
-//         }
-//         if(is_unique){
-//             unique_num_arr[unique_num_arr_size] = arr[i];
-//             occurance_count_arr[unique_num_arr_size] = 1;
-//             ++count_only_once;
-//             ++unique_num_arr_size;
-//         }
-//         printf("%u ", arr[i]); 
-//     }
-//     free(unique_num_arr);
-//     free(occurance_count_arr);
-//
-//     printf("Unique numbers in binary file is: %u\n", unique_num_arr_size);
-//     printf("Count of numbers seen only once is: %d\n", count_only_once); 
-// }
