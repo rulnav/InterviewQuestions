@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rg -o '"model":"[^"]*"' bigf.json | jq -R 'split(":") | .[1]' | sort | uniq -c | tee model_counts.txt 
+rg -o '"model":"[^"]*"' bigf.json | sort | uniq -c | tee model_counts.txt 
 # 33327094 "\"123456789\""
 # 33328584 "\"broken\""
 # 33338513 "\"DRV1\""

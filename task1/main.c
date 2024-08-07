@@ -1,20 +1,21 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define BUFFER_SIZE 1000000000
 #define BOOL uint8_t
 #define TRUE 1
 #define FALSE 0
-#define COUNT_SORT_BASE 256
+#define COUNT_SORT_BASE 2048
 
-void countSort(uint32_t *arr, uint32_t *output, uint32_t n, int64_t exp)
+void countSort(uint32_t *arr, uint32_t *output, uint32_t arr_size, int64_t exp)
 {
     // output array
     int32_t i, count[COUNT_SORT_BASE] = { 0 };
  
     // Store count of occurrences in count[]
-    for (i = 0; i < n; i++)
+    for (i = 0; i < arr_size; i++)
         count[(arr[i] / exp) % COUNT_SORT_BASE]++;
  
     // Change count[i] so that count[i] now contains actual
@@ -23,15 +24,17 @@ void countSort(uint32_t *arr, uint32_t *output, uint32_t n, int64_t exp)
         count[i] += count[i - 1];
  
     // Build the output array
-    for (i = n - 1; i >= 0; i--) {
-        output[count[(arr[i] / exp) % COUNT_SORT_BASE] - 1] = arr[i];
-        count[(arr[i] / exp) % COUNT_SORT_BASE]--;
+    for (i = arr_size - 1; i >= 0; i--) {
+        uint32_t arr_digit = (arr[i] / exp) % COUNT_SORT_BASE;
+        output[count[arr_digit] - 1] = arr[i];
+        count[arr_digit]--;
     }
  
     // Copy the output array to arr[], so that arr[] now
     // contains sorted numbers according to current digit
-    for (i = 0; i < n; i++)
-        arr[i] = output[i];
+    // for (i = 0; i < arr_size; i++)
+    //     arr[i] = output[i];
+    memcpy(arr, output, BUFFER_SIZE * sizeof(uint32_t));
 }
 
 void radixSort(uint32_t *arr, uint32_t arr_size)
